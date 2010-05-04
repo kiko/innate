@@ -63,9 +63,6 @@ module Innate
         :BindAddress => config[:Host],
         :Port => config[:Port],
         :Logger => Log,
-        :AccessLog => [
-          [Log, ::WEBrick::AccessLog::COMMON_LOG_FORMAT],
-          [Log, ::WEBrick::AccessLog::REFERER_LOG_FORMAT]]
       }
 
       handler.run(app, config)
