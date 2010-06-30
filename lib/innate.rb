@@ -253,7 +253,7 @@ module Innate
   #     Innate::Current.new(
   #       Rack::Cascade.new([
   #         Innate::Rewrite.new(Innate::DynaMap),
-  #         Innate::Route.new(Innate::DynaMap)])))
+  #         Innate::Route.new(Innate::DynaMap)]))])
   #
   # @see Rack::MiddlewareCompiler
   middleware :dev do |m|
