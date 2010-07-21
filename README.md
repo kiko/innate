@@ -131,7 +131,7 @@ your shell:
 
 ### Direct download
   
-    Download the latest tarball from [here](http://github.com/Ramaze/innate/tarball/master).
+Download the latest tarball from [here](http://github.com/Ramaze/innate/tarball/master).
 
 ## Concepts
 
