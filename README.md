@@ -127,15 +127,11 @@ your shell:
 
 ### Via gem install
 
-#### From Github
+    gem install innate
 
-    gem install manveru-innate --source=http://gems.github.com
-
-#### From Rubyforge
-
-Not yet, and not sure when I'll get around to do this, feel free to ask if you
-want to maintain the project at rubyforge.
-
+### Direct download
+  
+    Download the latest tarball from [here](http://github.com/Ramaze/innate/tarball/master).
 
 ## Concepts
 
