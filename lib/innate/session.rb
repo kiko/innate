@@ -38,6 +38,8 @@ module Innate
         :ttl, (60 * 60 * 24 * 30) # 30 days
       o "Length of generated Session ID (only applies when using SecureRandom)",
         :sid_length, 64
+      o "cookie cannot be accessed through client side script (http://www.owasp.org/index.php/HttpOnly)",
+        :httponly, false
 
       trigger(:expires){|value|
         self.ttl = value - Time.now.to_i
@@ -112,7 +114,12 @@ module Innate
 
     def cookie_value
       o = options
-      cookie = {:domain => o.domain, :path => o.path, :secure => o.secure}
+      cookie = {
+        :domain => o.domain,
+        :path => o.path,
+        :secure => o.secure,
+        :httponly => o.httponly
+      }
       cookie[:expires] = (Time.now + o.ttl) if o.ttl
       cookie.merge!(:value => sid)
     end
