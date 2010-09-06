@@ -77,7 +77,7 @@ module Innate
         :exts, %w[rb so bundle]
 
       o "Default helpers, added on inclusion of the Helper module",
-        :default, [:aspect, :cgi, :flash, :link, :render, :redirect, :send_file]
+        :default, [:aspect, :cgi, :flash, :link, :render, :redirect]
     end
 
     EXTS = %w[rb so bundle]
