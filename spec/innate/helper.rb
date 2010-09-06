@@ -16,6 +16,18 @@ module Innate
         ':('
       end
     end
+
+    module FooBar
+      def self.baz
+        "baz"
+      end
+    end
+
+    module FooBarHelper
+      def self.baz
+        "baz again!"
+      end
+    end
   end
 end
 
@@ -82,5 +94,10 @@ describe Innate::Helper::Link do
       Innate::HelpersHelper.try_require(:foo)
     }.should.raise(LoadError).
       message.should == "Helper foo not found"
+  end
+
+  should 'allow helper to be suffixed with "helper"' do
+    Innate::HelpersHelper.get(:foo_bar).baz.should == "baz"
+    Innate::HelpersHelper.get(:foo_bar_helper).baz.should == "baz again!"
   end
 end
