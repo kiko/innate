@@ -17,15 +17,9 @@ module Innate
       end
     end
 
-    module FooBar
-      def self.baz
-        "baz"
-      end
-    end
-
     module FooBarHelper
       def self.baz
-        "baz again!"
+        "baz"
       end
     end
   end
@@ -98,6 +92,6 @@ describe Innate::Helper::Link do
 
   should 'allow helper to be suffixed with "helper"' do
     Innate::HelpersHelper.get(:foo_bar).baz.should == "baz"
-    Innate::HelpersHelper.get(:foo_bar_helper).baz.should == "baz again!"
+    Innate::HelpersHelper.get(:foo_bar_helper).baz.should == "baz"
   end
 end
