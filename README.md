@@ -115,7 +115,7 @@ And another example, using Node with a normal server:
 Installing Innate from git is highly recommended, since it gives you easy
 access to alternate branches, bugfixes, and new features.
 
-    git clone git://github.com/manveru/innate.git
+    git clone git://github.com/Ramaze/innate.git
 
 Do not forget to add the innate/lib directory to your `RUBYLIB` environment
 variable.
