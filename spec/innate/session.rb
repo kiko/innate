@@ -26,6 +26,11 @@ class SpecSession
   def reset
     session.clear
   end
+
+  def resid
+    session.resid!
+  end
+  
 end
 
 describe Innate::Session do
@@ -51,7 +56,39 @@ describe Innate::Session do
       get('/decrement').body.should == n.to_s
     end
   end
+  
+  
+  should 'set a session cookie that can be changed with #resid!' do
+    clear_cookies
+    get '/init'
+    
+    last_response['Set-Cookie'].should.not == nil
+    old_set_cookie = last_response['Set-Cookie']
+    sid = Innate::Current.session.sid
+    get '/increment'
+    get '/view'
+    last_response.body.should == '1'
+    
+    get '/resid'
+    last_response['Set-Cookie'].should.not == nil
+    new_sid = Innate::Current.session.sid
+    new_sid.should.not == sid
 
+    get '/view'
+    last_response.body.should == '1'
+    last_response['Set-Cookie'].should == nil
+    Innate::Current.session.sid.should == new_sid
+
+    # We need to verify that the old session ID has been invalidated.
+    # The session data must be moved, not copied, on #resid!.
+    clear_cookies
+    set_cookie(old_set_cookie)
+    get '/view'
+    last_response.body.should == ''
+    
+  end
+  
+  
   should 'expose sid method' do
     Innate::Current.session.sid.should.not.be.empty
   end

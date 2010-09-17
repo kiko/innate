@@ -52,6 +52,7 @@ module Innate
     def initialize(request, response)
       @request, @response = request, response
       @cookie_set = false
+      @force_new_cookie = false
       @cache_sid = nil
       @flash = Flash.new(self)
     end
@@ -91,6 +92,13 @@ module Innate
       @sid ||= cookie || generate_sid
     end
 
+    def resid!
+      cache_sid
+      cache.delete(sid)
+      @sid = generate_sid
+      @force_new_cookie = true
+    end
+    
     private
 
     def cache_sid
@@ -106,10 +114,11 @@ module Innate
     end
 
     def set_cookie(response)
-      return if @cookie_set || cookie
-
+      return if @cookie_set || (!@force_new_cookie && cookie)
+      
       @cookie_set = true
       response.set_cookie(options.key, cookie_value)
+      @force_new_cookie = false
     end
 
     def cookie_value
