@@ -1,0 +1,5 @@
+class ExternalView < Erector::Widget
+  def content
+    p 'view body.'
+  end
+end

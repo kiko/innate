@@ -1,3 +1,4 @@
+.gitignore
 AUTHORS
 CHANGELOG
 COPYING
@@ -40,7 +41,6 @@ lib/innate/helper/flash.rb
 lib/innate/helper/link.rb
 lib/innate/helper/redirect.rb
 lib/innate/helper/render.rb
-lib/innate/helper/send_file.rb
 lib/innate/log.rb
 lib/innate/log/color_formatter.rb
 lib/innate/log/hub.rb
@@ -87,7 +87,6 @@ spec/innate/helper/flash.rb
 spec/innate/helper/link.rb
 spec/innate/helper/redirect.rb
 spec/innate/helper/render.rb
-spec/innate/helper/send_file.rb
 spec/innate/helper/view/aspect_hello.xhtml
 spec/innate/helper/view/locals.xhtml
 spec/innate/helper/view/loop.xhtml

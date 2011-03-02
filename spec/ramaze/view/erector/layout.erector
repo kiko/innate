@@ -1,0 +1,13 @@
+class Layout < Erector::Widget
+  def content
+    html do
+      head do
+        title 'erector'
+      end
+      
+      body do
+        rawtext @content
+      end
+    end
+  end
+end

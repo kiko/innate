@@ -1,0 +1,23 @@
+class Tables < Erector::Widget
+  def content
+    table do
+      
+      thead do
+        tr do
+          th 'Name'
+          th 'Age'
+        end
+      end
+      
+      tbody do
+        @users.each do |user|
+          tr do
+            td user[:name]
+            td user[:age]
+          end
+        end
+      end
+    
+    end
+  end
+end

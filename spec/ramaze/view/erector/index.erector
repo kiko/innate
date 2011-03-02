@@ -1,0 +1,5 @@
+class Index < Erector::Widget
+  def content
+    p 'paragraph text'
+  end
+end
