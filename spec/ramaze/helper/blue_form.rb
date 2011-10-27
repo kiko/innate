@@ -5,7 +5,7 @@ Bacon.summary_at_exit
 
 describe BF = Ramaze::Helper::BlueForm do
   extend BF
-  
+
   # Generate some dummy data
   @data = Class.new do
     attr_reader :username
@@ -16,7 +16,7 @@ describe BF = Ramaze::Helper::BlueForm do
     attr_reader :servers_hash
     attr_reader :servers_array
     attr_accessor :errors
-    
+
     def initialize
       @username     = 'mrfoo'
       @password     = 'super-secret-password'
@@ -39,7 +39,7 @@ describe BF = Ramaze::Helper::BlueForm do
     right = output.to_s.gsub(/\s+/, ' ').gsub(/>\s+</, '><').strip
     left.scan(/./).sort.should == right.scan(/./).sort
   end
-  
+
   # ------------------------------------------------
   # Basic forms
 
@@ -79,7 +79,7 @@ describe BF = Ramaze::Helper::BlueForm do
         f.legend('The Form')
       end
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <fieldset>
@@ -88,7 +88,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Text fields
 
@@ -96,7 +96,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.input_text 'Username', :username
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -106,12 +106,12 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with input_text(username, label, value)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_text 'Username', :username, :value => 'mrboo'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -121,12 +121,12 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with input_text(label, name, size, id)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_text 'Username', :username, :size => 10, :id => 'my_id'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -136,15 +136,15 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Password fields
-  
+
   it 'Make a form with input_password(label, name)' do
     out = form_for(nil , :method => :get) do |f|
       f.input_password 'Password', :password
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -154,7 +154,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with input_password(label, name, value, class)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_password 'Password', :password, :value => 'super-secret-password', :class => 'password_class'
@@ -166,18 +166,18 @@ describe BF = Ramaze::Helper::BlueForm do
     <label for="form_password">Password</label>
     <input class="password_class" type="password" name="password" id="form_password" value="super-secret-password" />
   </p>
-</form>   
+</form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Submit buttons
-  
+
   it 'Make a form with input_submit()' do
     out = form_for(@data, :method => :get) do |f|
       f.input_submit
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
     <p>
@@ -191,7 +191,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.input_submit 'Send'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -200,10 +200,10 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Checkboxes
-  
+
   it 'Make a form with input_checkbox(label, name)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_checkbox 'Assigned', :assigned
@@ -225,7 +225,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.input_checkbox 'Assigned', :assigned, 'bacon'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -253,10 +253,10 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Checkboxes using a hash
-  
+
   it 'Make a form with input_checkbox(label, name) using a hash' do
     out = form_for(@data, :method => :get) do |f|
       f.input_checkbox 'Assigned', :assigned_hash
@@ -293,12 +293,12 @@ describe BF = Ramaze::Helper::BlueForm do
 
   # ------------------------------------------------
   # Radio buttons
-  
+
   it 'Make a form with input_radio(label, name)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_radio 'Assigned', :assigned
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -327,7 +327,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with input_radio(label, name, checked, values, default)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_radio 'Assigned', :assigned, 'boo', :values => ['boo'], :default => 'ramaze'
@@ -343,10 +343,10 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Radio buttons using a hash
-  
+
   it 'Make a form with input_radio(label, name) using a hash' do
     out = form_for(@data, :method => :get) do |f|
       f.input_radio 'Assigned', :assigned_hash
@@ -383,12 +383,12 @@ describe BF = Ramaze::Helper::BlueForm do
 
   # ------------------------------------------------
   # File uploading
-  
+
   it 'Make a form with input_file(label, name)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_file 'File', :file
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -403,7 +403,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.input_file 'File', :file, :id => 'awesome_file'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -413,10 +413,10 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Hidden fields
-  
+
   it 'Make a form with input_hidden(name, value)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_hidden :username, 'Bob Ross'
@@ -428,7 +428,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with input_hidden(name, value, id)' do
     out = form_for(@data, :method => :get) do |f|
       f.input_hidden :username, 'Bob Ross', :id => 'test'
@@ -440,10 +440,10 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Textarea elements
-  
+
   it 'Make a form with textarea(label, name)' do
     out = form_for(@data, :method => :get) do |f|
       f.textarea 'Message', :message
@@ -463,7 +463,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.textarea 'Message', :message, :value => 'stuff'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -473,7 +473,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Select elements
 
@@ -514,12 +514,12 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with select(label, name) from an array' do
     out = form_for(@data, :method => :get) do |f|
       f.select 'Server', :servers_array
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -538,7 +538,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.select 'Server', :servers_array, :selected => 'Mongrel'
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -552,10 +552,10 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Select elements with custom values
-  
+
   it 'Make a form with select(label, name) from a hash using custom values' do
     out = form_for(@data, :method => :get) do |f|
       f.select 'People', :people_hash, :values => {:chuck => 'Chuck', :bob => 'Bob'}
@@ -591,7 +591,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with select(label, name) from an array using custom values' do
     out = form_for(@data, :method => :get) do |f|
       f.select 'People', :people_array, :values => ['Chuck', 'Bob']
@@ -627,12 +627,12 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with multiple select(label, name) from a hash' do
     out = form_for(@data, :method => :get) do |f|
       f.select 'Server', :servers_hash, :multiple => :multiple
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -646,12 +646,12 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with multiple select(label, name, selected) from a hash' do
     out = form_for(@data, :method => :get) do |f|
       f.select 'Server', :servers_hash, :multiple => :multiple, :selected => :webrick
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -665,12 +665,12 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   it 'Make a form with multiple select(label, name, selected) from a hash' do
     out = form_for(@data, :method => :get) do |f|
       f.select 'Server', :servers_hash, :multiple => :multiple, :selected => [:webrick, :mongrel]
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -684,7 +684,7 @@ describe BF = Ramaze::Helper::BlueForm do
 </form>
     FORM
   end
-  
+
   # ------------------------------------------------
   # Error messages
 
@@ -693,7 +693,7 @@ describe BF = Ramaze::Helper::BlueForm do
     out = form_for(@data, :method => :get) do |f|
       f.input_text 'Username', :username
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>
@@ -707,11 +707,11 @@ describe BF = Ramaze::Helper::BlueForm do
   it 'Retrieve all errors messages from the model' do
     @data.errors = {:username => "May not be empty"}
     form_errors_from_model(@data)
-    
+
     out = form_for(@data, :method => :get) do |f|
       f.input_text 'Username', :username
     end
-    
+
     assert(<<-FORM, out)
 <form method="get">
   <p>

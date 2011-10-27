@@ -6,11 +6,11 @@ require 'erector'
 module Ramaze
 
   module Helper
-    
+
     ##
     # Allows you to use some shortcuts for Erector in your Controller.
     #
-    # use this inside your controller to directly build Erector 
+    # use this inside your controller to directly build Erector
     # Refer to the Erector-documentation and testsuite for more examples.
     #
     # @example
@@ -36,7 +36,7 @@ module Ramaze
         #     end
         #     body
         #       div do
-        #         
+        #
         #       end
         #     end
         #   end
@@ -54,7 +54,7 @@ module Ramaze
         # Generate a Javascript tag.
         #
         # @example
-        # 
+        #
         #   js 'javascript/jquery.js'
         #
         # @param [String] src The full or relative path to the Javascript file.
@@ -102,9 +102,9 @@ module Ramaze
         #
         def css(href, args = {})
           attrs = {
-            :rel => "stylesheet", 
-            :href => href, 
-            :type => "text/css" 
+            :rel => "stylesheet",
+            :href => href,
+            :type => "text/css"
           }.merge(args)
 
           link attrs

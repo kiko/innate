@@ -69,7 +69,7 @@ module Ramaze
     # @author Yorick Peterse
     #
     module CSRF
-      
+
       ##
       # Method that can be used to protect the specified methods against CSRF exploits.
       # Each protected method will require the token to be stored in a field called "csrf_token".
@@ -98,7 +98,7 @@ module Ramaze
           end
         end
       end
-      
+
       ##
       # Generate a new token and create the session array that will be used to validate the client.
       # The following items are stored in the session:
@@ -108,7 +108,7 @@ module Ramaze
       # * ip: The IP address of the visitor
       # * time: Timestamp that indicates at what time the data was generated.
       #
-      # Note that this method will be automatically called if no CSRF token exists. 
+      # Note that this method will be automatically called if no CSRF token exists.
       #
       # @author Yorick Peterse
       # @param  [Hash] Additional arguments that can be set such as the TTL.
@@ -121,18 +121,18 @@ module Ramaze
         else
           ttl = 900
         end
-        
+
         # Generate all the required data
         time    = Time.new.to_i.to_s
         number  = SecureRandom.random_number(10000).to_s
         base64  = SecureRandom.base64.to_s
         token   = Digest::SHA2.new(512).hexdigest(srand.to_s + rand.to_s + time + number + base64).to_s
-        
+
         # Get several details from the client such as the user agent, IP, etc
         ip      = request.env['REMOTE_ADDR']
         agent   = request.env['HTTP_USER_AGENT']
         host    = request.env['REMOTE_HOST']
-        
+
         # Time to store all the data
         session[:_csrf] = {
           :time  => time.to_i,
@@ -142,18 +142,18 @@ module Ramaze
           :host  => host,
           :ttl   => ttl
         }
-        
+
         # Prevent this method from returning any value (it isn't needed anyway)
         return
       end
-      
+
       ##
       # Retrieves the current value of the CSRF token.
       #
       # @author Yorick Peterse
       # @return [String] The current CSRF token.
       # @example
-      # 
+      #
       #  form(@data, :method => :post) do |f|
       #    f.input_hidden :csrf_token, get_csrf_token()
       #  end
@@ -162,11 +162,11 @@ module Ramaze
         if !session[:_csrf] or !self.validate_csrf_token(session[:_csrf][:token])
           self.generate_csrf_token
         end
-        
+
         # Land ho!
         return session[:_csrf][:token]
       end
-      
+
       ##
       # Validates the request based on the current session date stored in _csrf.
       # The following items are verified:
@@ -194,16 +194,16 @@ module Ramaze
         if !session[:_csrf] or session[:_csrf].empty?
           self.generate_csrf_token
         end
-        
+
         # Get several details from the client such as the user agent, IP, etc
         ip      = session[:_csrf][:ip]
         agent   = session[:_csrf][:agent]
         host    = session[:_csrf][:host]
-        
+
         # Get the current time and the time when the token was created
         now         = Time.new.to_i
         token_time  = session[:_csrf][:time]
-        
+
         # Mirror mirror on the wall, who's the most secure of them all?
         results     = Array.new
         results.push( session[:_csrf][:token] == input_token )
@@ -211,7 +211,7 @@ module Ramaze
         results.push( host  == request.env['REMOTE_HOST'] )
         results.push( ip    == request.env['REMOTE_ADDR'] )
         results.push( agent == request.env['HTTP_USER_AGENT'] )
-        
+
         # Verify the results
         if results.include?(false)
           return false
@@ -219,7 +219,7 @@ module Ramaze
           return true
         end
       end
-      
+
     end # <-- End of CSRF module
   end
 end

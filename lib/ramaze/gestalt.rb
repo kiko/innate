@@ -28,7 +28,7 @@ module Ramaze
     # The default way to start building your markup.
     # Takes a block and returns the markup.
     #
-    # @param [Block] block 
+    # @param [Block] block
     #
     def self.build(&block)
       self.new(&block).to_s
@@ -68,7 +68,7 @@ module Ramaze
     def p(*args, &block)
       _gestalt_call_tag :p, args, &block
     end
-    
+
     ##
     # Workaround for Kernel#select to make <select></select> work.
     #

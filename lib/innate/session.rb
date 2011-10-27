@@ -98,7 +98,7 @@ module Innate
       @sid = generate_sid
       @force_new_cookie = true
     end
-    
+
     private
 
     def cache_sid
@@ -115,7 +115,7 @@ module Innate
 
     def set_cookie(response)
       return if @cookie_set || (!@force_new_cookie && cookie)
-      
+
       @cookie_set = true
       response.set_cookie(options.key, cookie_value)
       @force_new_cookie = false

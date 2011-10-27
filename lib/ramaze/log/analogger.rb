@@ -5,7 +5,7 @@ require 'swiftcore/Analogger/Client'
 
 module Ramaze
   module Logger
-    
+
     ##
     # Informer for the Swiftcore Analogger logging system.
     #

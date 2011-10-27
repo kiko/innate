@@ -62,7 +62,7 @@ describe Ramaze::Helper::HttpDigest do
       get '/authenticate'
       www_authenticate  = last_response.headers['WWW-Authenticate']
       authorization     = Rack::Auth::Digest::Params.parse(www_authenticate)
-      
+
       authorization["opaque"].should.not.be.empty
       authorization["nonce"].should.not.be.empty
       authorization["realm"].should.equal REALM
@@ -70,9 +70,9 @@ describe Ramaze::Helper::HttpDigest do
 
       digest_authorize 'foo', 'oof'
       get '/authenticate'
-      
+
       last_response.headers.should.satisfy do |headers|
-        !headers.has_key? "WWW-Authenticate" 
+        !headers.has_key? "WWW-Authenticate"
       end
     end
   end

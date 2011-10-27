@@ -49,10 +49,10 @@ module Ramaze
         # Define the schema for this model
         set_schema do
           primary_key :id
-          
+
           String :key,   :null => false, :unique => true
           String :value, :text => true
-          
+
           Time :expires
         end
       end
@@ -107,7 +107,7 @@ module Ramaze
         if keys
           keys.each do |key|
             record = @store[:key => namespaced(key)]
-            record.delete if record  
+            record.delete if record
           end
         end
       end

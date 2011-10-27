@@ -76,7 +76,7 @@ module Innate
       end
 
       # Renders an action view and does not execute any methods.
-      # The rendered view will not be wrapped in a layout and instead 
+      # The rendered view will not be wrapped in a layout and instead
       # will use the layout of the current action.
       # You can further tweak the action to be rendered by passing a block.
       #

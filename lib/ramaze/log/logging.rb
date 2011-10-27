@@ -5,7 +5,7 @@ module Ramaze
 
   ##
   # This module provides a basic skeleton for your own loggers to be compatible.
-  # 
+  #
   # @example
   #
   #   class MyLogger
@@ -25,7 +25,7 @@ module Ramaze
     # If you include this module you have to define #log or it will raise.
     #
     # @param [String] tag The level of the log message.
-    # @param [String] method 
+    # @param [String] method
     # @param [Array] msgs The data that should be logged.
     #
     def tag_log(tag, meth, *msgs)

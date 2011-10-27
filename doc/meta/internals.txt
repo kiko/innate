@@ -129,7 +129,7 @@ to our handler as body.
 #### The Ramaze module
 
 Ramaze is also the main module or so-called namespace that the framework lives
-in. It has 
+in. It has
 
 Tasks on require
 
@@ -154,7 +154,7 @@ Tasks on startup as defined in Ramaze.trait[:internals] in lib/ramaze.rb
 
     * actions
       Caching compiled actions.
-      
+
     * patterns
       This is used in Controller::resolve to cache the generated patterns for a
       path.

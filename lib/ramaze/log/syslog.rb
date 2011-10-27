@@ -9,7 +9,7 @@ module Syslog
     alias dev debug
     alias warn warning
     alias error err
-    module_function :dev, :warn, :error 
+    module_function :dev, :warn, :error
 end
 
 module Ramaze
@@ -24,7 +24,7 @@ module Ramaze
       ##
       # Open the syslog library, if it is allready open, we reopen it using the
       # new argument list.  The argument list is passed on to the Syslog library
-      # so please check that, and man syslog for detailed information.  
+      # so please check that, and man syslog for detailed information.
       # There are 3 parameters:
       #
       #   ident:  The identification used in the log file, defaults to $0

@@ -56,7 +56,7 @@ module Ramaze
       # want to call the css() method over and over again.
       #
       # @example
-      # 
+      #
       #   # This is pretty basic
       #   css_for 'reset', '960', 'style'
       #
@@ -89,7 +89,7 @@ module Ramaze
       # is located. By default this key is set to "js".
       # @return [String]
       # TODO:  The js() method 2nd argument is a hash but only supports the :prefix key. Perhaps changing this hash into a string would be better - Yorick
-      # 
+      #
       def js(name, options={})
         if name =~ /^http/ # consider it external full url
           SCRIPT_TAG % name
@@ -97,7 +97,7 @@ module Ramaze
           SCRIPT_TAG % "#{Ramaze.options.prefix.chomp("/")}/#{options[:prefix] || 'js'}/#{name}.js"
         end
       end
-      
+
       ##
       # Generate multiple Javascript tags using the js() method.
       #
@@ -108,7 +108,7 @@ module Ramaze
       #
       # @param [Array] args Array containing the Javascript files to load.
       # @return [String]
-      # 
+      #
       def js_for(*args)
         args.map{|arg| js(*arg) }.join("\n")
       end
