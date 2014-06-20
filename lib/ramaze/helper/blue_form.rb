@@ -5,7 +5,7 @@ module Ramaze
   module Helper
     ##
     # == Introduction
-    # 
+    #
     # The BlueForm helper tries to be an even better way to build forms programmatically.
     # By using a simple block you can quickly create all the required elements for your form.
     #
@@ -44,7 +44,7 @@ module Ramaze
     # If you don't want to use an object you can simply set the first parameter to nil.
     #
     # == HTML Output
-    # 
+    #
     # The form helper uses Gestalt, Ramaze's custom HTML builder that works somewhat like Erector.
     # The output is very minimalistic, elements such as legends and fieldsets have to be added manually.
     # Each combination of a label and input element will be wrapped in <p> tags.
@@ -58,7 +58,7 @@ module Ramaze
     #      f.input_text 'Text label', :textname, 'Chunky bacon!'
     #    end
     #  }
-    # 
+    #
     # @example
     #
     #  form_for(@data, :method => :post) do |f|
@@ -72,7 +72,7 @@ module Ramaze
       #
       # @param [Object] form_values Object containing the values for each form field.
       # @param [Hash] options Hash containing any additional form attributes such as the method, action, enctype and so on.
-      # @param [Block] block Block containing the elements of the form such as password fields, textareas and so on. 
+      # @param [Block] block Block containing the elements of the form such as password fields, textareas and so on.
       #
       def form_for(form_values, options = {}, &block)
         form = Form.new(form_values, options)
@@ -121,7 +121,7 @@ module Ramaze
             if value.respond_to?(:first)
               value = value.first
             end
-            
+
             form_error(key.to_s, value % key)
           end
         end
@@ -159,15 +159,15 @@ module Ramaze
           # Convert all the keys in form_errors to strings and
           # retrieve the correct values in case
           @form_errors = {}
-          
+
           form_errors.each do |key, value|
             if value.respond_to?(:first)
               value = value.first
             end
-            
+
             @form_errors[key.to_s] = value
           end
-          
+
           @g.form(@form_args) do
             if block_given?
               yield self
@@ -180,7 +180,7 @@ module Ramaze
         #
         # @param [String] text The text to display inside the legend tag.
         # @example
-        # 
+        #
         #   form_for(@data, :method => :post) do |f|
         #     f.legend 'Ramaze rocks!'
         #   end
@@ -188,13 +188,13 @@ module Ramaze
         def legend(text)
           @g.legend(text)
         end
-        
+
         ##
         # Generate a fieldset tag.
         #
         # @param [Block] &block The form elements to display inside the fieldset.
         # @example
-        #  
+        #
         #  form_for(@data, :method => :post) do |f|
         #    f.fieldset do
         #      f.legend 'Hello, world!'
@@ -208,7 +208,7 @@ module Ramaze
         ##
         # Generate an input tag with a type of "text" along with a label tag.
         # This method also has the alias "text" so feel free to use that one instead of input_text.
-        # 
+        #
         # @param [String] label The text to display inside the label tag.
         # @param [String Symbol] name The name of the text field.
         # @param [Hash] args Any additional HTML attributes along with their values.
@@ -243,7 +243,7 @@ module Ramaze
         # @param [String Symbol] name The name of the password field.
         # @param [Hash] args Any additional HTML attributes along with their values.
         # @example
-        # 
+        #
         #  form_for(@data, :method => :post) do |f|
         #    f.input_password 'My password', :password
         #  end
@@ -252,11 +252,11 @@ module Ramaze
           # The ID can come from 2 places, id_for and the args hash
           id   = args[:id] ? args[:id] : id_for(name)
           args = args.merge(:type => :password, :name => name, :id => id)
-          
+
           if !args[:value] and @form_values.respond_to?(name)
             args[:value] = @form_values.send(name)
           end
-          
+
           @g.p do
             label_for(id, label, name)
             @g.input(args)
@@ -337,7 +337,7 @@ module Ramaze
           if !args[:values] and @form_values.respond_to?(name)
             args[:values] = @form_values.send(name)
           end
-          
+
           # That class for each element wrapper (a span tag) can be customized
           # using :span_class => "a_class".
           if args[:span_class]
@@ -346,38 +346,38 @@ module Ramaze
           else
             span_class = "checkbox_wrap"
           end
-          
+
           # Get the type from the args hash instead of pre-defining it. Doing so means we can use
           # this method for the input_radio method.
           if !args[:type]
             args[:type] = :checkbox
           end
-          
+
           # Convert the values to an array if it's something we can't use in a loop (e.g. a string).
           if args[:values].class != Hash and args[:values].class != Array
             args[:values] = [args[:values]]
           end
-          
+
           # Create a checkbox for each value
           if !args[:values].empty?
             @g.p do
               # Let's create the label and the hidden field
               label_for(id, label, name)
               self.input_hidden(name, default)
-              
+
               # Loop through all the values. Each checkbox will have an ID of "form-NAME-INDEX".
               # Each name will be NAME followed by [] to indicate it's an array (since multiple values are possible).
               args[:values].each_with_index do |value, index|
                 id            = args[:id] ? args[:id] : "#{id_for(name)}_#{index}"
-                
+
                 if args[:type] == :checkbox
                   checkbox_name = "#{name}[]"
                 else
                   checkbox_name = name
                 end
-                
+
                 # Copy all additional attributes and their values except the values array.
-                opts = args.clone 
+                opts = args.clone
                 opts.delete(:values)
 
                 # Get the value and text to display for each checkbox
@@ -441,7 +441,7 @@ module Ramaze
         # @param [Hash] args Any additional HTML attributes along with their values.
         # @see input_checkbox()
         # @example
-        # 
+        #
         #  form_for(@data, :method => :post) do |f|
         #    f.input_radio 'Gender', :gender
         #  end
@@ -449,18 +449,18 @@ module Ramaze
         def input_radio(label, name, checked = nil, args = {})
           # Force a type of "radio"
           args[:type] = :radio
-          
+
           if !args[:span_class]
             args[:span_class] = "radio_wrap"
           end
-          
+
           self.input_checkbox(label, name, checked, args)
         end
         alias radio input_radio
 
         ##
         # Generate a field for uploading files.
-        # 
+        #
         # @param [String] label The text to display inside the label tag.
         # @param [String Symbol] name The name of the radio tag.
         # @param [Hash] args Any additional HTML attributes along with their values.
@@ -493,10 +493,10 @@ module Ramaze
         #  form_for(@data, :method => :post) do |f|
         #    f.input_hidden :user_id
         #  end
-        # 
+        #
         def input_hidden(name, value = nil, args = {})
           args = args.merge(:type => :hidden, :name => name)
-          
+
           if !value and @form_values.respond_to?(name)
             args[:value] = @form_values.send(name)
           else
@@ -521,7 +521,7 @@ module Ramaze
         #
         def textarea(label, name, args = {})
           id = args[:id] ? args[:id] : id_for(name)
-          
+
           # Get the value of the textarea
           if !args[:value] and @form_values.respond_to?(name)
             value = @form_values.send(name)
@@ -529,7 +529,7 @@ module Ramaze
             value = args[:value]
             args.delete(:value)
           end
-          
+
           args = args.merge(:name => name, :id => id)
 
           @g.p do
@@ -540,7 +540,7 @@ module Ramaze
 
         ##
         # Generate a select tag along with the option tags and a label.
-        # 
+        #
         # @param [String] label The text to display inside the label tag.
         # @param [String Symbol] name The name of the select tag.
         # @param [Hash] args Hash containing additional HTML attributes.
@@ -553,7 +553,7 @@ module Ramaze
         def select(label, name, args = {})
           id              = args[:id] ? args[:id] : id_for(name)
           multiple, size  = args.values_at(:multiple, :size)
-          
+
           # Get all the values
           if !args[:values] and @form_values.respond_to?(name)
             values = @form_values.send(name)
@@ -561,7 +561,7 @@ module Ramaze
             values = args[:values]
             args.delete(:values)
           end
-          
+
           args[:multiple] = 'multiple' if multiple
           args[:size]     = (size || values.count || 1).to_i
           args[:name]     = multiple ? "#{name}[]" : name
@@ -578,11 +578,11 @@ module Ramaze
               values.each do |value, o_name|
                 o_name ||= value
                 o_args = {:value => value}
-                
+
                 if has_selected and selected.include?(value)
                   o_args[:selected] = 'selected'
                 end
-                
+
                 @g.option(o_args){ o_name }
               end
             end

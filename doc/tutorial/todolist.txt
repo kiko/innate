@@ -191,7 +191,7 @@ So our next step is to create the actual model for our data, for this we create 
 class Task < Sequel::Model
   set_schema do
     primary_key :id
-    
+
     varchar :title, :unique => true, :empty => false
     boolean :done, :default => false
   end
@@ -260,7 +260,7 @@ filename-extension for Etanni templates)
 The '<?r ?>' and '\#{ }' elements enclose ruby code that will be executed when
 the template is being rendered (on every request to 'index').
 Code within '<?r ?>' is only executed and will not show up in the resulting
-document, while code within '#{ }' will be interpolated. 
+document, while code within '#{ }' will be interpolated.
 
 In this template we iterate over all the data stored in the Task model,
 yielding a list of task titles and the respective status of the task.
@@ -903,7 +903,7 @@ RDBMS::
   Relational Database Management System
 ORM::
   Object Relationship Mapper: Maps data into objects and assists in querying
-  and manipulation 
+  and manipulation
 MVC::
   Model, View, Controller: one of the patterns traditionally used for GUIs in Smalltalk.
 Etanni::

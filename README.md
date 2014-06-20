@@ -130,7 +130,7 @@ your shell:
     gem install innate
 
 ### Direct download
-  
+
 Download the latest tarball from [here](http://github.com/Ramaze/innate/tarball/master).
 
 ## Concepts

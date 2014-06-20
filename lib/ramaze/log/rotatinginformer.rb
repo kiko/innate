@@ -19,7 +19,7 @@ module Ramaze
 
       # This is how the final output is arranged.
       trait :format => "[%time] %prefix  %text"
-      
+
       ##
       # Create a new instance of RotatingInformer.
       #
@@ -34,16 +34,16 @@ module Ramaze
       # any or all of the symbols :debug, :error, :info and/or :warn
       #
       # @example
-      #   
+      #
       #   # Creates logs in directory called logs. The generated filenames will be in the form YYYY-MM-DD.log
       #   RotatingInformer.new('logs')
       #
-      #   
+      #
       #   # Creates logs in directory called logs. The generated filenames will be in the form YYYY-MM.txt
       #   RotatingInformer.new('logs', '%Y-%m.txt')
-      #                                   
       #
-      #   # Creates logs in directory called logs. The generated filenames will be in the form YYYY-MM.txt. 
+      #
+      #   # Creates logs in directory called logs. The generated filenames will be in the form YYYY-MM.txt.
       #   # Only errors will be logged to the files.
       #   RotatingInformer.new('logs', '%Y-%m.txt', [:error])
       #

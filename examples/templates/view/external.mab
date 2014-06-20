@@ -16,7 +16,7 @@ html do
       br
     end
     div do
-      text "The arguments you have passed to this action are:" 
+      text "The arguments you have passed to this action are:"
       if @args.empty?
         text "none"
       else

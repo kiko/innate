@@ -59,7 +59,7 @@ module Ramaze
         limit = options[:limit]
         var   = options[:var]
         page  = options[:page] || (request[var] || 1).to_i
-          
+
         Paginator.new(dataset, page, limit, var)
       end
 

@@ -4,7 +4,7 @@ class Layout < Erector::Widget
       head do
         title 'erector'
       end
-      
+
       body do
         rawtext @content
       end

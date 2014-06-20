@@ -141,16 +141,16 @@
 
       This line syncs variables from current action to newly created action:
         action.sync_variables(self.action)
-    
+
       but later this line eliminates above effect:
         action.variables = variables.dup
-    
+
       Assume we would like variables from current action, but
       would like to override (or hide, shadow) them by passing
       another hash of variables in render_file's second arguments.
       Then change that line to:
         action.variables.merge!(variables.dup)
-    
+
       spec this behavior in SpecHelperRenderFile.
 
 [42b5ec5 | 2009-10-28 12:43:54 UTC] Lin Jen-Shin <godfat@godfat.org>
@@ -262,7 +262,7 @@
   * Aspect spec uses inline layout instead a file-based.
 
     Also prefixed DerivedWithLayout with the helper name.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [62d8853 | 2009-05-21 13:16:57 UTC] Antti Tuomi <antti.tuomi@tkk.fi>
@@ -270,7 +270,7 @@
   * Aspect spec checks the functionality when using layouts.
 
     This spec fails at the moment.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [e4735cb | 2009-05-27 14:57:48 UTC] ravage <ravage@fragmentized.net>
@@ -485,7 +485,7 @@
     Copying to an instance instead of a binding simplifies
     the code while also giving a minor performance enhancement
     as a bonus.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [d1fe1f4 | 2009-05-02 14:38:28 UTC] Michael Fellinger <m.fellinger@gmail.com>
@@ -504,7 +504,7 @@
     major part of the time was spent inside require. Benchmarking
     with a simple hello world application revealed it to be about
     25 percent faster without this require.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [4155ea9 | 2009-05-01 15:51:53 UTC] Michael Fellinger <m.fellinger@gmail.com>
@@ -529,7 +529,7 @@
 
   * Skip template/view/layout lookup if the given path doesn't exist.
 
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [e4b5388 | 2009-05-01 08:30:31 UTC] Michael Fellinger <m.fellinger@gmail.com>
@@ -1119,28 +1119,28 @@
   * Refactor Node options
 
     Node options are now done by traits.
-    
+
     The reasoning behind this is that one wants to inherit options from
     nodes they subclass and that lookup of these options should be fast.
-    
+
     Lookup of views is this:
       [Innate.options.roots, Innate.options.views,
         Node.trait[:views], name]
-    
+
     Lookup of layouts is this:
       [Innate.options.roots, Innate.options.layouts,
         Node.trait[:layouts], name]
-    
+
     If the traits are empty arrays, the Node.mapping is used instead.
-    
+
     Setting a custom view or layout mapping works like:
-    
+
       class Foo
         Innate.node('/')
         map_views '/foobar'
         map_layouts '/foobar'
       end
-    
+
     More about this soon in the docs.
 
 [9b78d9c | 2009-03-17 11:28:35 UTC] Michael Fellinger <m.fellinger@gmail.com>
@@ -1929,7 +1929,7 @@
 
   * Delete :root and :file parameters after root is figured. Because they
 
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [caf7b61 | 2009-02-03 17:32:01 UTC] Tadahiko Uehara <kikofx@gmail.com>
@@ -3479,12 +3479,12 @@
     * Use the new helper method in your node
       Following would include Helper::Bar, extend Helper::Foo and include
       and extend Helper::Foobar
-    
+
       class Foo
         include Innate::Node
         helper :bar, :extend => :foo, :both => :foobar
       end
-    
+
     * shipped default helpers are found and used automatically, to specify a
       default helper you can add it to Innate::Helper::DEFAULT.
     * Helper::EXPOSE is now a reference to Helper::LOOKUP, i think the name

@@ -8,7 +8,7 @@ module Ramaze
     # Please have a look at the docs of Auth#auth_login.
     #
     # If you want to do authentication with a model see Helper::User instead.
-    
+
     ##
     # The Auth helper can be used for authentication without using a model.
     # This can be useful when working with very basic applications that don't require database access.
@@ -26,7 +26,7 @@ module Ramaze
       def self.included(into)
         into.helper(:stack)
       end
-      
+
       ##
       # Log a user in based on the :username and :password key in the request hash.
       #

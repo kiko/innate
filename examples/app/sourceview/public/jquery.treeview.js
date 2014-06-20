@@ -1,6 +1,6 @@
 /*
  * Treeview 1.3 - jQuery plugin to hide and show branches of a tree
- * 
+ *
  * http://bassistance.de/jquery-plugins/jquery-plugin-treeview/
  *
  * Copyright (c) 2007 Jörn Zaefferer
@@ -27,7 +27,7 @@
 		last: "last",
 		hitarea: "hitarea"
 	};
-	
+
 	$.extend($.fn, {
 		swapClass: function(c1, c2) {
 			return this.each(function() {
@@ -68,7 +68,7 @@
 			} else {
 				this.hide();
 				if (callback)
-					this.each(callback);				
+					this.each(callback);
 			}
 		},
 		prepareBranches: function(settings) {
@@ -85,37 +85,37 @@
 					toggler.apply($(this).next());
 				}
 			}).add( $("a", this) ).hoverClass();
-			
+
 			// handle closed ones first
 			this.filter(":has(>ul:hidden)")
 					.addClass(CLASSES.expandable)
 					.replaceClass(CLASSES.last, CLASSES.lastExpandable);
-					
+
 			// handle open ones
 			this.not(":has(>ul:hidden)")
 					.addClass(CLASSES.collapsable)
 					.replaceClass(CLASSES.last, CLASSES.lastCollapsable);
-					
+
             // create hitarea
 			this.prepend("<div class=\"" + CLASSES.hitarea + "\"/>")
 				.find("div." + CLASSES.hitarea).click( toggler );
 		},
 		treeview: function(settings) {
-			
+
 			// currently no defaults necessary, all implicit
 			settings = $.extend({}, settings);
-			
+
 			if (settings.add) {
 				return this.trigger("add", [settings.add]);
 			}
-			
+
 			if (settings.toggle ) {
 				var callback = settings.toggle;
 				settings.toggle = function() {
 					return callback.apply($(this).parent()[0], arguments);
 				};
 			}
-		
+
 			// factory for treecontroller
 			function treeController(tree, control) {
 				// factory for click handlers
@@ -135,9 +135,9 @@
 				// click on second to expand tree
 				$(":eq(1)", control).click( handler(CLASSES.expandable) );
 				// click on third to toggle tree
-				$(":eq(2)", control).click( handler() ); 
+				$(":eq(2)", control).click( handler() );
 			}
-		
+
 			// handle toggle event
 			function toggler() {
 				// this refers to hitareas, we need to find the parent lis first
@@ -158,7 +158,7 @@
 						.heightHide( settings.animated, settings.toggle );
 				}
 			}
-			
+
 			function serialize() {
 				function binary(arg) {
 					return arg ? 1 : 0;
@@ -169,7 +169,7 @@
 				});
 				$.cookie("treeview", data.join("") );
 			}
-			
+
 			function deserialize() {
 				var stored = $.cookie("treeview");
 				if ( stored ) {
@@ -179,13 +179,13 @@
 					});
 				}
 			}
-			
+
 			// add treeview class to activate styles
 			this.addClass("treeview");
-			
+
 			// prepare branches and find all tree items with child lists
 			var branches = this.find("li").prepareBranches(settings);
-			
+
 			switch(settings.persist) {
 			case "cookie":
 				var toggleCallback = settings.toggle;
@@ -204,20 +204,20 @@
 				}
 				break;
 			}
-			
+
 			branches.applyClasses(settings, toggler);
-				
+
 			// if control option is set, create the treecontroller
 			if ( settings.control )
 				treeController(this, settings.control);
-			
+
 			return this.bind("add", function(event, branches) {
 				$(branches).prev().removeClass(CLASSES.last).removeClass(CLASSES.lastCollapsable).removeClass(CLASSES.lastExpandable);
 				$(branches).find("li").andSelf().prepareBranches(settings).applyClasses(settings, toggler);
 			});
 		}
 	});
-	
+
 	// provide backwards compability
 	$.fn.Treeview = $.fn.treeview;
 })(jQuery);

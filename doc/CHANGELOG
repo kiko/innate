@@ -175,7 +175,7 @@
 
     This option allows a user to specify the relative location of a css or
     js file, defaulting back to 'css' and 'js' respectively. ie
-    
+
       css('foo', :prefix => 'stylesheets') #=> <link
       href="/stylesheets/foo.css" ...>
 
@@ -440,11 +440,11 @@
 
 [9c39d64 | Sun Feb 14 12:55:29 UTC 2010] jShaf <joshua.shaffner@gmail.com>
 
-  * 
+  *
 
 [2b917ff | Sun Feb 14 12:48:10 UTC 2010] jShaf <joshua.shaffner@gmail.com>
 
-  * 
+  *
 
 [5c93ded | Tue Feb 02 23:26:17 UTC 2010] Michael Fellinger <m.fellinger@gmail.com>
 
@@ -723,7 +723,7 @@
   * Don't use system temp dir;
 
     ('openid-store' in our case).
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [e417109 | Mon Jul 27 19:00:18 UTC 2009] Pistos <gitsomegrace.5.pistos@geoshell.com>
@@ -1315,10 +1315,10 @@
     Clean up benchmarking a bit adding support for a mode switch,
     which defaults to "live". Move "require 'ramaze'" to support
     custom environments and killing the logging correctly.
-    
+
     Also fix bug where Ramaze.start was run in one of the files
     in the suite, and finally remove the unused --no-sessions.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [b8337e9 | Wed May 06 05:29:15 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1363,7 +1363,7 @@
 
     The evaluate method uses instance_eval on a cached proc instead of using
     eval like the erb compatible result method does.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [cfd250c | Fri May 01 21:02:03 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1434,14 +1434,14 @@
 
   * Add support Gestalt as another template engine.
 
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [37b2928 | Mon Apr 27 01:51:52 UTC 2009] Tadahiko Uehara <kikofx@gmail.com>
 
   * Add gestalt to take text and attributes as arguments.
 
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [42e96b1 | Sun Apr 26 05:19:31 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1460,7 +1460,7 @@
        the rackup binary
      * Added #is_windows? for a standard platform check
      * Added new exec formats for Win32
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [b734de6 | Fri Apr 24 16:52:28 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1554,7 +1554,7 @@
   * Added status command and moved IRB.start inline instead of exec.
 
     * Status needs testing on WIN32 and OSX
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [df495ae | Fri Apr 17 21:48:58 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1577,7 +1577,7 @@
 
     * added is_running? and check_running? as helpers
     * refactored #stop to pass it's given pid to find_pid
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [c29043d | Fri Apr 17 02:47:02 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1725,7 +1725,7 @@
     * Allows including of custom library paths with standard ruby -I
       functionality.
     * Now passing ARGV along to irb with console command.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [38f1b77 | Sat Apr 04 15:29:18 UTC 2009] bougyman <bougyman@falcon.(none)>
@@ -1745,11 +1745,11 @@
     * Create command exits and prints error if no PROJECT given
     * Added more verbose description of each command
     * Now defaults to printing help instead of starting an application
-    
+
     TODO:
-    
+
     * Add ability to merge application options.  Perhaps ENV setting.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [aed1603 | Sat Apr 04 20:26:53 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1786,11 +1786,11 @@
 
     * Pass along rackup --help options when requesting --help
     * Removed debug output from default_pidfile
-    
+
     TODO:
     * Make ramaze --console work as expected
     * Design a methodology to pass the ramaze application itself arguments, instead of just to rack(up)
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [686a38d | Fri Apr 03 16:15:53 UTC 2009] bougyman <bougyman@falcon.(none)>
@@ -1806,11 +1806,11 @@
     * Simple optparser for start|stop|restart|create
     * Passing all other args on to config.ru
     * Used old ramaze tool/create for creation from prototype
-    
+
     TODO:
     * Enable --force and --amend to ramaze create
     * Recognize app.rb and rackup's options to display in --help
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [ea434b1 | Sat Apr 04 00:14:51 UTC 2009] Michael Fellinger <m.fellinger@gmail.com>
@@ -1978,7 +1978,7 @@
   * Updating example/template specs for examples that DON'T work.
 
     The following template systems don't seem to work (or at least I'm unable to get their examples to work at the moment):
-    
+
     Amrita2
     Liquid
     RedCloth
@@ -2275,7 +2275,7 @@
   * Cater for qop(auth-int) as per RFC 2617 section 3.2.3
 
     Conflicts:
-    
+
     	lib/ramaze/helper/httpdigest.rb
 
 [a62f89d | Sun Mar 15 19:26:53 UTC 2009] Clive Crous <clive@crous.co.za>
@@ -3315,7 +3315,7 @@
     concurrent hits, the @routed variable would get shared among threads, leading
     to values that did not reflect reality.  This caused routing to fail about 1 to
     10 times per 10000 requests.
-    
+
     Signed-off-by: Michael Fellinger <m.fellinger@gmail.com>
 
 [e3df9f7 | Tue Jan 06 21:15:46 UTC 2009] Pistos <gitsomegrace.5.pistos@geoshell.com>
@@ -3550,7 +3550,7 @@
     :referer, or the other way round depending on order the hash was iterated
     over. As a side effect we also get rid of various HTTP_* set to null when
     missing from the query hash.
-    
+
     Also fix incorrect indentation in the make_query function; tabs converted
     to spaces.
 
@@ -3600,7 +3600,7 @@
     :referer, or the other way round depending on order the hash was iterated
     over. As a side effect we also get rid of various HTTP_* set to null when
     missing from the query hash.
-    
+
     Also fix incorrect indentation in the make_query function; tabs converted
     to spaces.
 
@@ -4052,7 +4052,7 @@
       * Global.middleware is now true by default:
         * Don't pull yet if you need custom error pages!
         * Error pages are handled by Rack::ShowExceptions
-    
+
       * Add Ramaze::Reloader:
         * Implemented as Rack middleware
         * Reloads only on requests, keeps your CPU at 0
@@ -5222,7 +5222,7 @@
     Adds the session key :openid_sreg which is an instance of OpenID::SReg::Reponse. This does affect performance in a negative way, but provides plenty of extra information (including email, language preference, and country)
     The hit on performance is neglibile on the application's part, but it seems OpenID provider's pages take a bit longer to load. About 1 sec wall-second extra it seems.
     Since this only adds and doesn't change any part of the helper, current OpenID-using applications will be unaffected. (Besides the barely notciable increase in time)
-    
+
     darcs-hash:20080426194529-c880c-845b1ae651c3a5d5b3412c869d6d27183263ce82.gz
 
 [deabd96 | Tue Apr 29 13:07:00 UTC 2008] Michael Fellinger <m.fellinger@gmail.com>
@@ -5392,7 +5392,7 @@
   * Add #fetch and #store methods to Ramaze::Cache.
 
     #fetch allows you to specify a default value that should be returned if the key is not found, while #store allows you to specify a time to live on a per-key basis.
-    
+
     darcs-hash:20080420004211-04984-5c4ce1429c916b6e53e4c570b7f8d8bad1f85bca.gz
 
 [090ffc7 | Sat Apr 19 02:07:00 UTC 2008] Michael Fellinger <m.fellinger@gmail.com>
@@ -5733,7 +5733,7 @@
     * error message now more descriptive on failure
     * return_to URL should now also work if app is deployed under subdir
     * fixed URL that gets passed to consumer.complete to work with mongrel
-    
+
     darcs-hash:20080328104751-1c5bc-b43e5c25fc7de8596ba67fd203d26bf69ec2a2c4.gz
 
 [049fcc9 | Mon Mar 31 12:56:00 UTC 2008] Michael Fellinger m.fellinger@gmail.com <>
@@ -6193,7 +6193,7 @@
     Sun Mar  2 19:52:38 JST 2008  Christian Neukirchen <chneukirchen@gmail.com>
       * Call after-blocks even if before-blocks or spec raise exceptions
         Based on a patch by Keita Yamaguchi
-    
+
     darcs-hash:20080305232621-cbc08-c0ff72c60cef6502ac8537b17d35c85870fbaa58.gz
 
 [84e7e18 | Thu Mar 06 04:07:00 UTC 2008] ara.t.howard <m.fellinger@gmail.com>
@@ -6374,7 +6374,7 @@
     the render call, which is the new api for passing Haml locals.  Hopefully this
     can be gutted when local support to render_template is removed but, for now,
     this just makes tests pass and supports latest Haml api.
-    
+
     darcs-hash:20080229171550-4585f-e12a34d6c9d4d3c727f3373b711ea2893bbb2a75.gz
 
 [adb49e2 | Thu Feb 28 13:12:00 UTC 2008] ara.t.howard <m.fellinger@gmail.com>
@@ -6534,13 +6534,13 @@
     This is required because CGI.escape and co. do *NOT* cast incoming arguments
     to strings even though that is the only thing they can operate on.  Without
     this patch views get fugly quick as they become littered with
-    
+
       url_encode parts.map{|part| part.to_s}
-    
+
     vs
-    
+
       url_encode parts
-    
+
     darcs-hash:20080219190717-4585f-96dc1003e024ea4fa72b28a297bf282ae2593398.gz
 
 [fb1b7ab | Tue Feb 19 21:31:00 UTC 2008] Jonathan Buch <john@oxyliquit.de>
@@ -6571,7 +6571,7 @@
     'check_auth()'.  Thanks goes to Ryan Grove for catching this.
     Introduces new Global.actionless_templates which is true by default, which
     makes it backwards compatible.
-    
+
     darcs-hash:20080219120931-2c51e-8b83e3026e5dbd426f4501b40e6b9ffdac2799c2.gz
 
 [b30cc44 | Tue Feb 19 16:57:00 UTC 2008] Jonathan Buch <john@oxyliquit.de>
@@ -6837,7 +6837,7 @@
   * Revise automapping rules, My::TestController => /my/test
 
     Instead of swallowing the 'constant path', map it to the url
-    
+
     darcs-hash:20080202150254-2c51e-ca5b5f0c17f6de91ad4167a00f7eee809dd8fcc0.gz
 
 [a07d145 | Sat Feb 02 21:00:00 UTC 2008] Jonathan Buch <john@oxyliquit.de>
@@ -6847,7 +6847,7 @@
     Recognizes `Ramaze.start :contrib => [:gzip_filter]`
     Calls .shutdown on contrib modules which support it
     Add some documentation
-    
+
     darcs-hash:20080202150026-2c51e-dc07fe56ce32a74afca889027563d91eef6a8502.gz
 
 [bc0d3cc | Sat Feb 02 20:54:00 UTC 2008] Jonathan Buch <john@oxyliquit.de>
@@ -6881,7 +6881,7 @@
     * reverse lookup of files, first C extensions then .rb files to match
       normal ruby require rules more closely in both contrib and helper.
     * Add contrib docs.
-    
+
     darcs-hash:20080201223343-2c51e-48b8b84865679b7e3f5d4120a7e5dc48b34badb1.gz
 
 [4c9ea42 | Thu Jan 31 18:16:00 UTC 2008] Michael Fellinger <manveru@weez-int.com>
@@ -7232,7 +7232,7 @@
 
     this patch adds shallow etag support.
     The implementation is completely untested though
-    
+
     darcs-hash:20080113215239-16231-f0fdd64e92c2ff81d0d6caccac56ed346ace0864.gz
 
 [c59c298 | Sun Jan 13 05:27:00 UTC 2008] Keita Yamaguchi <keita.yamaguchi@gmail.com>
@@ -7696,7 +7696,7 @@
   * fix_for_controllers_with_new_method
 
     If a controller had a method of "new", the "R" linking method would brake.  Modified code and tests should be included.
-    
+
     darcs-hash:20080103133851-5aeb6-63820f005a0372dd3accdaac613e770690fbefd2.gz
 
 [ce0ca62 | Wed Jan 02 18:58:00 UTC 2008] Michael Fellinger <m.fellinger@gmail.com>
@@ -9524,7 +9524,7 @@
     SpecWrapper will show it in red and show the error report.
     It seems that using Ramaze::Inform as the default logger for it works,
     but maybe it should be done in start.rb, or we should use Logger.set(STDOUT)
-    
+
     darcs-hash:20070902204140-16231-99df4cd25e18ecc5f8b0a741d81767e9d36a0847.gz
 
 [dea1180 | Sun Sep 02 22:41:00 UTC 2007] rff.rff <m.fellinger@gmail.com>
@@ -9538,9 +9538,9 @@
   * these are just simple specs for example/blog, again more useful to
 
     show users how to write tests than  to test the ramaze infrastructure.
-    
+
     Strangely, all test pass but it is shown with a red bar from ramaze's rake.
-    
+
     darcs-hash:20070902173551-16231-63352c3a114451a2af11e84754ca0eaa40962470.gz
 
 [df7f84e | Sun Sep 02 21:56:00 UTC 2007] rff.rff <m.fellinger@gmail.com>
@@ -9633,7 +9633,7 @@
 
     the dummy specs for wiktacular are now runnable standalone or from rake.
     It was a path problem. Needs consolidation in the model.
-    
+
     darcs-hash:20070828112202-16231-34bb273c48c4ff4e1b37806182ce5b48bf7d50c8.gz
 
 [a0f6113 | Tue Aug 28 17:08:00 UTC 2007] Michael Fellinger <m.fellinger@gmail.com>
@@ -9685,7 +9685,7 @@
     This means that end-users can use it for their own proijects by requiring
     ramaze/spec/helper, and we can add tests to the examples instead of leaving them
     in ramaze's spec directory.
-    
+
     darcs-hash:20070826150623-16231-f6ae8bcb82cc3f7a475dcbbe80bf4ac9d3516438.gz
 
 [248d30f | Sun Aug 26 20:04:00 UTC 2007] rff.rff <m.fellinger@gmail.com>
@@ -9735,7 +9735,7 @@
   * changed Adapter to circumvent JRubys TCPServer bug (http://jira.codehaus.org/browse/JRUBY-1266)
 
     Ramaze now works in JRuby with Webrick, tested on a PPC-Mac with JRuby 1.0
-    
+
     darcs-hash:20070811112427-464fd-5c11ee75a3aea71d6cae4da73518f9728fe9863a.gz
 
 [3cc0c04 | Wed Aug 08 16:12:00 UTC 2007] Michael Fellinger <m.fellinger@gmail.com>
@@ -10201,7 +10201,7 @@
     .[] .[]= .delete .clear .values_at
     These are now the only operations supported by Cache, if you need more, use
     the Cache#cache to get the underlying object.
-    
+
     darcs-hash:20070720073609-21a65-d0b22afb56b5d42dbb0a57b625492566884e4dce.gz
 
 [ddc2524 | Thu Jul 19 23:06:00 UTC 2007] Jonathan Buch <jo@helloit.fi>
@@ -10278,7 +10278,7 @@
     For example you have a top ::Page element and one in FooController::Page,
     the FooController::Page will be used when rendering actions from FooController
     and all other controllers will fall back to the default ::Page element.
-    
+
     darcs-hash:20070709131456-21a65-1d39b39891b47a908c603f18e7786cb29242e608.gz
 
 [5553ee0 | Mon Jul 09 18:13:00 UTC 2007] Jonathan Buch <jo@helloit.fi>
@@ -10325,7 +10325,7 @@
     separation of logs. For instance, you could log debug information at
     standard output while having another Informer logging all errors to a
     file.
-    
+
     darcs-hash:20070626183108-5f4f4-32ae2ff3691cbb6c0e2e460ad25895fd3a11115c.gz
 
 [986c8d1 | Wed Jun 27 19:36:00 UTC 2007] Jonathan Buch <jo@helloit.fi>
@@ -10483,7 +10483,7 @@
   * Documentation of main.rb & ezamar.rb
 
     Rough documentation of lib/proto/src/controller/main.rb and lib/ramaze/template/ezamar.rb
-    
+
     darcs-hash:20070614051328-206fc-888ca6b2db06097a7b6dc5742d78c3737f14a038.gz
 
 [c3c6f63 | Thu Jun 14 07:55:00 UTC 2007] Michael Fellinger <m.fellinger@gmail.com>
@@ -10648,7 +10648,7 @@
     This behaviour comes for free by including ERb::Util but I don't know
     if we want to load all that (I'd say yes).
     All tests still pass, so the test suite is incomplete.
-    
+
     darcs-hash:20070605203514-16231-3bc4c0415fa26e05d11e04533d56c37b3eab001f.gz
 
 [41d15fd | Wed Jun 06 00:33:00 UTC 2007] rff.rff <m.fellinger@gmail.com>
@@ -10700,7 +10700,7 @@
     * integrated action-method, template and Page element
     * added a template-less action
     * changed index so that it gives slightly nicer informations
-    
+
     darcs-hash:20070605094901-16231-c96004e4e4311fe64f11ac789e052d5e160bd1da.gz
 
 [b956355 | Tue Jun 05 08:40:00 UTC 2007] Michael Fellinger <m.fellinger@gmail.com>
@@ -11026,7 +11026,7 @@
   * Spec for templates accepting arbitrary parameters
 
     (failing for now)
-    
+
     darcs-hash:20070524143528-21a65-5d9ff17c5c38eb8404b1d4ba5232cb9e9df16a3e.gz
 
 [f04eeb7 | Thu May 24 18:16:00 UTC 2007] Michael Fellinger <m.fellinger@gmail.com>
@@ -11676,7 +11676,7 @@
   * Make Analogger trait-configurable again
 
     Makes it play better together with LogHub
-    
+
     darcs-hash:20070511200032-21a65-4c8c8988c2c5e542a50a5fc4bc8bd866e434659d.gz
 
 [9d609af | Fri May 11 17:12:00 UTC 2007] Michael Fellinger <m.fellinger@gmail.com>
@@ -12308,7 +12308,7 @@
   * Add NotificationHub, Growl, Xosd Loggers
 
     This is a preliminary patch, especially the Xosd is not tested.
-    
+
     darcs-hash:20070426122834-21a65-b498bd8f067ab3b58473bafb6a32e129facd2fe1.gz
 
 [32ac3a4 | Wed Apr 25 04:30:00 UTC 2007] m.fellinger <m.fellinger@gmail.com>
@@ -12577,7 +12577,7 @@
     * GlobalInformer (standard)
     * Analogger [Kirk Haines]
     * Syslog
-    
+
     darcs-hash:20070411082526-21a65-5c36abb750f8e5f2f1d72e22e8901457396f89c5.gz
 
 [10323eb | Wed Apr 11 10:26:00 UTC 2007] m.fellinger <m.fellinger@gmail.com>
@@ -13402,7 +13402,7 @@
 
     * trait :foo_template => :bar__foo did break
     * added spec for flash, no fix
-    
+
     darcs-hash:20070308133604-21a65-7cd7c17ab4b89e7ad1bd93ac481cf0603bec1dc5.gz
 
 [55bd4ef | Thu Mar 08 08:07:00 UTC 2007] m.fellinger <m.fellinger@gmail.com>
@@ -16899,19 +16899,19 @@
       -a, --adapter=ADAPTER select an adapter [mongrel|webrick]
       -m, --mongrel         use mongrel to process requests
       -w, --webrick         the default
-    
+
           --mode=LEVEL      set the running-mode
       -b, --benchmark       full logging with benchmarks, autoreload 5
       -d, --debug           the default, full logging,    autoreload 5
       -t, --stage           log infos/errors,             autoreload 10
       -l, --live            log errors,                   autoreload 20
       -s, --silent          no logging,                   autoreload 40
-    
+
       -o, --host            which host should ramaze listen for requests
                               default is 0.0.0.0
       -p, --port            what port should ramaze use
                               default is 7000
-    
+
       -n, --no-errorpage    don't use the default errorpage of ramaze
                               helpful if you want to make sure noone can
                               ever see your code by accident or for testing
@@ -16926,13 +16926,13 @@
           --cache           use the simple caching based on the signature
                               of your requests (experimental)
           --tidy            run Tool::Tidy over text/html output
-    
+
       -h, --help            print this help
       -v, --version         print the version
       -c, --copyright       print the copyrith
-    
+
     Please report bugs to <m.fellinger at gmail.com>
-    
+
     darcs-hash:20061206133845-24576-8ca1965261247871e2fe2a7fe6f953af8e50fa70.gz
 
 [f85be74 | Wed Dec 06 19:38:00 UTC 2006] manveru <m.fellinger@gmail.com>
@@ -17174,22 +17174,22 @@
   * redirect is now a helper too
 
     like LinkHelper, but even simpler
-    
+
     RedirectHelper actually takes advantage of LinkHelper.link_raw to build the links
     it redirects to.
     It doesn't do much else than this:
       setting a status-code of 303 and a head['Location'] = link
       returning some nice text for visitors who insist on ignoring those hints :P
-    
+
     example of usage:
     redirect MainController
     redirect MainController, :foo
     redirect 'foo/bar'
-    
+
     still todo:
      - setting custom status-code, it ignores any preset ones at the moment
      - maybe some more options, like a delay
-    
+
     darcs-hash:20061201123529-24576-09ebb1ce66a9df67405ef36267173e375d2e7e9b.gz
 
 [cdcf9d4 | Fri Dec 01 18:24:00 UTC 2006] manveru <m.fellinger@gmail.com>
@@ -17197,23 +17197,23 @@
   * added the LinkHelper, the first of the helpers
 
     it is included into the Template::Ramaze by default
-    
+
     this helper tries to get along without any major magic, the only 'magic'
     thing is that it looks up controller-paths if you pass it a controller
     the text shown is always the last segmet of the finished link from split('/')
-    
+
     usage is pretty much shown in test/tc_helper
     however, to give you some idea of how it actually works, some examples:
-    
+
     link MainController, :foo                 #=> '<a href="/foo">foo</a>'
     link MinorController, :foo                #=> '<a href="/minor/foo">foo</a>'
     link MinorController, :foo, :bar          #=> '<a href="/minor/foo/bar">bar</a>'
     link MainController, :foo, :raw => true   #=> '/foo'
-    
+
     link_raw MainController, :foo             #=> '/foo'
     link_raw MinorController, :foo            #=> '/minor/foo'
     link_raw MinorController, :foo, :bar      #=> '/minor/foo/bar'
-    
+
     still todo:
      - handling of no passed parameters
      - setting of a custom link-title, possibly images as well
@@ -17221,7 +17221,7 @@
      - taking advantae of Gestalt to build links
      - lots of other minor niceties, for the moment i'm only concerned to keep
        it as simple as possible
-    
+
     darcs-hash:20061201122435-24576-e9ea29f3c4db1e49f7c770ecbce1f1d5ba1540ca.gz
 
 [a11db1b | Fri Dec 01 18:23:00 UTC 2006] manveru <m.fellinger@gmail.com>
@@ -18261,15 +18261,15 @@
   * added an ramaze executable
 
     it can be found in bin/ramaze and you use it like that:
-    
+
     $ cd example
     $ ls
       main.rb
     $ ramaze
-    
+
     which will in turn run the main.rb
     you can give ramaze a parameter for the run-file, more sophisticated parameters are not included (yet)
-    
+
     darcs-hash:20061015044454-24576-aa5cb8a03956388df81a6ce391b4c2958322dcc5.gz
 
 [cd8299c | Sat Oct 14 00:22:00 UTC 2006] manveru <m.fellinger@gmail.com>

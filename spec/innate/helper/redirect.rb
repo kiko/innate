@@ -22,7 +22,7 @@ class SpecRedirectHelper
   def redirect_referer_action
     redirect_referer
   end
-  
+
   def redirect_referer_with_fallback
     redirect_referer(r(:noop))
   end

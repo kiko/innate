@@ -15,7 +15,7 @@ class MainController < Ramaze::Controller
     @pager = paginate(USERS)
 %q~
 <html>
-  
+
   <head><title>Users</title></head>
   <body>
     #{@pager.navigation if @pager.needed?}

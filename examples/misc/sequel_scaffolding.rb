@@ -19,7 +19,7 @@ class User < Sequel::Model(:user)
   end
 
   create_table unless table_exists?
-  
+
   # Add a couple of users to our database
   create(:name => 'manveru', :description => 'The first user!')
   create(:name => 'injekt', :description => 'Just another user')

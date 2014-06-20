@@ -26,7 +26,7 @@ unless defined? Fiber
     def wait
       @resume.pop
     end
-    
+
     def self.yield *args
       raise FiberError, "can't yield from root fiber" unless fiber = Thread.current[:fiber]
       fiber.yield.push(args)
@@ -48,14 +48,14 @@ end
 
 __END__
 
-$ ruby fbr.rb 
+$ ruby fbr.rb
 hi
 1
 2
 bye
 :done
 
-$ ruby1.9 fbr.rb 
+$ ruby1.9 fbr.rb
 hi
 1
 2
